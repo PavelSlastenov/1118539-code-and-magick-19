@@ -8,8 +8,9 @@ var GAP = 10;                           //Отступ
 var FONT_GAP = 25;                     //Отступ у текста
 var TEXT_HEIGHT = 40;                 //Высота текста
 var COLUMN_HEIGHT = 150;             //Высота гистограммы
-var barWidth = 40;                  //Ширина колонки
-var COLUMN_SPACE = 50;             //Расстояние между колонками
+var BAR_WIDTH = 40;                  //Ширина колонки
+var BAR_HEIGHT = 20;               //Высота колонки
+var COLUMN_SPACE = 50;            //Расстояние между колонками
 
 //Функция отрисовки облака
 var renderCloud = function (ctx, x, y, width, height, color) {
@@ -51,12 +52,12 @@ window.renderStatistics = function (ctx, players, times) {
   drawsText(ctx, 'Список результатов:', CLOUD_X + CLOUD_Y, GAP + TEXT_HEIGHT);
 
   for (var i = 0; i < players.length; i++) {                                      //Цикл который изменяет значение переменной i(index) в которой будет храниться порядковый номер текущего элемента массива от 0 до длины массива
-    var barHeight = scaleFactor * times[i];
-    var x = CLOUD_X + GAP + COLUMN_SPACE + (barWidth + COLUMN_SPACE) * i;       //Формула отрисовки столбца
-    var y = CLOUD_X + GAP + COLUMN_HEIGHT - barHeight;
+    var BAR_HEIGHT = scaleFactor * times[i];
+    var x = CLOUD_X + GAP + COLUMN_SPACE + (BAR_WIDTH + COLUMN_SPACE) * i;       //Формула отрисовки столбца
+    var y = CLOUD_X + GAP + COLUMN_HEIGHT - BAR_HEIGHT;
 
 
-    renderCloud(ctx, x, y - FONT_GAP, barWidth, barHeight, players[i] === 'Вы' ? 'rgba(255, 0 ,0, 1)' : 'hsl(240,' + Math.random() * 100 + '%, 50%)');   //Задает отдельно цвет игроку "Вы"
+    renderCloud(ctx, x, y - FONT_GAP, BAR_WIDTH, BAR_HEIGHT, players[i] === 'Вы' ? 'rgba(255, 0 ,0, 1)' : 'hsl(240,' + Math.random() * 100 + '%, 50%)');   //Задает отдельно цвет игроку "Вы"
                                                                                                                                                         //остальные игроки синие, с случайно задающейся насыщенностью через "hsl"
     drawsText(ctx, players[i], x, CLOUD_HEIGHT - GAP);
     drawsText(ctx, Math.round(times[i]), x, y - TEXT_HEIGHT);
