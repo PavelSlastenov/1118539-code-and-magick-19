@@ -13,18 +13,18 @@ var COLUMN_SPACE = 50;             //Расстояние между колон�
 
 //Функция отрисовки облака
 var renderCloud = function (ctx, x, y, width, height, color) {
-  ctx.fillStyle = color;                                         //Цвет перенесли в параметры
+  ctx.fillStyle = color;                                           //Цвет перенес в параметры
   ctx.fillRect(x, y, width, height);
 };
 
 //Параметры текста
 var drawsText = function (ctx, text, x, y, color, font) {
-  ctx.fillStyle = color;
+  ctx.fillStyle = color;                                       //Цвет перенес в параметры
   ctx.font = '16px PT Mono';
   ctx.fillText(text, x, y);
 };
 
-//Находит максимальное время в масиве
+//Функция находит максимальное время в массиве
 var getMaxElement = function (arr) {
   var maxElement = arr[0];                                //Отмечает первый элемент как максимальный
 
@@ -37,7 +37,7 @@ var getMaxElement = function (arr) {
   return maxElement;                               //Возвращает максимальный элемент
 };
 
-//Отрисовка тени, игроков, затраченного времени
+//Отрисовка облака, тени, игроков, затраченного времени
 window.renderStatistics = function (ctx, players, times) {
   renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, CLOUD_WIDTH, CLOUD_HEIGHT, 'rgba(0, 0, 0, 0.7)');   //Тень от облака и цвет
   renderCloud(ctx, CLOUD_X, CLOUD_Y, CLOUD_WIDTH, CLOUD_HEIGHT, '#fff');                            //Облако и цвет
@@ -56,7 +56,7 @@ window.renderStatistics = function (ctx, players, times) {
     var y = CLOUD_X + GAP + COLUMN_HEIGHT - barHeight;
 
 
-    renderCloud(ctx, x, y - FONT_GAP, barWidth, barHeight, players[i] === 'Вы' ? 'rgba(255, 0 ,0, 1)' : 'hsl(240,' + Math.random() * 100 + '%, 50%)');   //Задает отдельно цвет игрок "Вы"
+    renderCloud(ctx, x, y - FONT_GAP, barWidth, barHeight, players[i] === 'Вы' ? 'rgba(255, 0 ,0, 1)' : 'hsl(240,' + Math.random() * 100 + '%, 50%)');   //Задает отдельно цвет игроку "Вы"
                                                                                                                                                         //остальные игроки синие, с случайно задающейся насыщенностью через "hsl"
     drawsText(ctx, players[i], x, CLOUD_HEIGHT - GAP);
     drawsText(ctx, Math.round(times[i]), x, y - TEXT_HEIGHT);
