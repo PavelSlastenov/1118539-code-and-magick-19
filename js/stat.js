@@ -59,7 +59,7 @@ window.renderStatistics = function (ctx, players, times) {
 
     renderCloud(ctx, x, y - FONT_GAP, BAR_WIDTH, BAR_HEIGHT, players[i] === 'Вы' ? 'rgba(255, 0 ,0, 1)' : 'hsl(240,' + Math.random() * 100 + '%, 50%)');   //Задает отдельно цвет игроку "Вы"
                                                                                                                                                         //остальные игроки синие, с случайно задающейся насыщенностью через "hsl"
-    drawsText(ctx, players[i], x, CLOUD_HEIGHT - GAP);
+    drawsText(ctx, players[i], x, CLOUD_HEIGHT - GAP, 'rgb(0, 0, 0)');
     drawsText(ctx, Math.round(times[i]), x, y - TEXT_HEIGHT);
   }
 
