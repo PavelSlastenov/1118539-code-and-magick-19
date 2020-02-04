@@ -8,9 +8,8 @@ var randomElement = function (min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-var userDialog = document.querySelector('.setup').classList.remove('hidden');
 var similarListElement = document.querySelector('.setup-similar-list');
-
+document.querySelector('.setup').classList.remove('hidden');
 
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
   .content
