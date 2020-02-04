@@ -46,11 +46,11 @@ window.renderStatistics = function (ctx, players, times) {
   drawsText(ctx, 'Ура вы победили!', 230, 25);
   drawsText(ctx, 'Список результатов:', CLOUD_X + CLOUD_Y, GAP + TEXT_HEIGHT);
   for (var i = 0; i < players.length; i++) {
-    var BarHeight = scaleFactor * times[i];
+    var barHeight = scaleFactor * times[i];
     var x = CLOUD_X + GAP + COLUMN_SPACE + (BAR_WIDTH + COLUMN_SPACE) * i;
-    var y = CLOUD_X + GAP + COLUMN_HEIGHT - BarHeight;
+    var y = CLOUD_X + GAP + COLUMN_HEIGHT - barHeight;
 
-    renderCloud(ctx, x, y - FONT_GAP, BAR_WIDTH, BarHeight, players[i] === 'Вы' ? 'rgba(255, 0 ,0, 1)' : 'hsl(240,' + Math.random() * 100 + '%, 50%)');
+    renderCloud(ctx, x, y - FONT_GAP, BAR_WIDTH, barHeight, players[i] === 'Вы' ? 'rgba(255, 0 ,0, 1)' : 'hsl(240,' + Math.random() * 100 + '%, 50%)');
 
     drawsText(ctx, players[i], x, CLOUD_HEIGHT - GAP, 'rgb(0, 0, 0)');
     drawsText(ctx, Math.round(times[i]), x, y - TEXT_HEIGHT);
