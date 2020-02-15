@@ -18,7 +18,7 @@ var getRandomArray = function (array) {
 };
 
 var similarListElement = document.querySelector('.setup-similar-list');
-document.querySelector('.setup').classList.remove('hidden');
+document.querySelector('.setup');
 
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
   .content
